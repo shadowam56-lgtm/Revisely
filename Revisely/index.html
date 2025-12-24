@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisely – Adaptive Revision Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --bg: #f8fafc;
+    --dark: #0f172a;
+    --muted: #64748b;
+}
+
+body {
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: var(--dark);
+    font-size: 18px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    margin-right: 12px;
+}
+
+.logo h2 {
+    font-weight: 800;
+}
+
+nav a {
+    margin-left: 28px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.hero {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 110px 40px;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeUp 1s ease;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--muted);
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.stats {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.9);
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.stat-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.hero-btn {
+    padding: 18px 42px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(79,70,229,0.5);
+}
+
+section {
+    padding: 100px 25px;
+}
+
+.info-section,
+.difference,
+.final-cta {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.info-section h2,
+.steps h2,
+.difference h2,
+.audience h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+.info-section span {
+    color: var(--primary);
+}
+
+.info-section p {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.steps {
+    background: white;
+    text-align: center;
+}
+
+.step-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+.audience {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    text-align: center;
+}
+
+.final-cta h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.05rem; }
+    header { padding: 16px 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Revisely Logo">
+        <h2>Revisely</h2>
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Smart <span>AI-Powered</span> Revision</h1>
+    <p>
+        Revisely helps students revise faster and smarter using AI-generated notes,
+        MCQs, flashcards, and adaptive learning insights.
+    </p>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3>⚡ 3× Faster</h3>
+            <p>Revision compared to traditional study</p>
+        </div>
+        <div class="stat-card">
+            <h3>📈 92%</h3>
+            <p>Improved concept clarity</p>
+        </div>
+        <div class="stat-card">
+            <h3>🧠 AI-Driven</h3>
+            <p>Powered by Google Gemini</p>
+        </div>
+    </div>
+
+    <a href="upload.html" class="hero-btn">Get Started</a>
+</section>
+
+<section class="info-section">
+    <h2>What is <span>Revisely?</span></h2>
+    <p>
+        Revisely is an <strong>Adaptive Revision Generator</strong> that transforms
+        long study material into concise notes, intelligent MCQs, flashcards,
+        and personalized revision paths using AI.
+    </p>
+</section>
+
+<section class="steps">
+    <h2>How Revisely Works</h2>
+    <div class="step-grid">
+        <div class="step-card"><h3>1️⃣ Upload Content</h3><p>Notes, PDFs or syllabus</p></div>
+        <div class="step-card"><h3>2️⃣ AI Analysis</h3><p>Concept understanding using Gemini</p></div>
+        <div class="step-card"><h3>3️⃣ Smart Revision</h3><p>Notes, MCQs & flashcards</p></div>
+        <div class="step-card"><h3>4️⃣ Improve</h3><p>Adaptive difficulty & feedback</p></div>
+    </div>
+</section>
+
+<section class="difference">
+    <h2>Why Revisely is Different</h2>
+    <div class="diff-grid">
+        <div>❌ Long Notes</div><div>✅ Smart Summaries</div>
+        <div>❌ Static Questions</div><div>✅ Adaptive MCQs</div>
+        <div>❌ No Feedback</div><div>✅ Real-Time Insights</div>
+    </div>
+</section>
+
+<section class="audience">
+    <h2>Who is Revisely For?</h2>
+    <p>📚 College Students &nbsp; | &nbsp; 🧪 Competitive Exams &nbsp; | &nbsp; 🎓 Self Learners</p>
+</section>
+
+<section class="final-cta">
+    <h2>Start Revising Smarter Today 🚀</h2>
+    <a href="upload.html" class="hero-btn">Try Revisely Now</a>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload | Revisely</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --bg: #f8fafc;
+    --dark: #0f172a;
+    --muted: #64748b;
+}
+
+body {
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: var(--dark);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    margin-right: 10px;
+}
+
+.logo h2 {
+    font-weight: 800;
+}
+
+nav a {
+    margin-left: 26px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.upload-hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    animation: fadeUp 1s ease;
+}
+
+.upload-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.upload-hero h1 span {
+    color: var(--primary);
+}
+
+.upload-hero p {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 700px;
+    margin: auto;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.step-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+}
+
+.upload-container {
+    max-width: 650px;
+    margin: 70px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 22px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    text-align: center;
+    animation: fadeUp 1.2s ease;
+}
+
+.upload-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.upload-container p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    border: 2px dashed var(--primary);
+    border-radius: 16px;
+    padding: 40px 20px;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    background: #eef2ff;
+}
+
+.upload-box input {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.btn {
+    margin-top: 35px;
+    padding: 16px 42px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(79,70,229,0.5);
+}
+
+#loading {
+    display: none;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.trust {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.trust h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.trust-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    nav { display: none; }
+    header { padding: 16px 30px; }
+    .upload-hero h1 { font-size: 2.2rem; }
+    .upload-container { padding: 35px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Revisely Logo">
+        <h2>Revisely</h2>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="upload-hero">
+    <h1>Upload & <span>Revise Smarter</span></h1>
+    <p>
+        Turn your notes, PDFs, or syllabus into smart summaries,
+        MCQs, flashcards, and adaptive revision paths using AI.
+    </p>
+</section>
+
+<section class="steps">
+    <div class="step-card">
+        <h3>📂 Upload Content</h3>
+        <p>Select your notes or study material</p>
+    </div>
+    <div class="step-card">
+        <h3>🧠 AI Analysis</h3>
+        <p>Google Gemini understands key concepts</p>
+    </div>
+    <div class="step-card">
+        <h3>📘 Smart Output</h3>
+        <p>Notes, MCQs & flashcards generated</p>
+    </div>
+    <div class="step-card">
+        <h3>📈 Improve Faster</h3>
+        <p>Adaptive learning based on performance</p>
+    </div>
+</section>
+
+<section class="upload-container">
+    <h2>Upload Your Notes</h2>
+    <p>Supported formats: PDF, DOCX, TXT</p>
+
+    <div class="upload-box">
+        <strong>📤 Drag & Drop or Click to Upload</strong><br>
+        <input type="file" id="fileInput">
+    </div>
+
+    <button class="btn" onclick="processFile()">Generate Material</button>
+    <p id="loading">⏳ Processing your content...</p>
+</section>
+
+<section class="trust">
+    <h2>Why Students Trust Revisely</h2>
+    <div class="trust-grid">
+        <div class="trust-card">⚡ Faster Revision</div>
+        <div class="trust-card">🎯 Exam-Focused Content</div>
+        <div class="trust-card">🤖 AI-Powered Accuracy</div>
+    </div>
+</section>
+
+<script>
+function processFile() {
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(() => {
+        window.location.href = "result.html";
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
